@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.gavin.springStudy.bean.JavaCollection;
 import com.gavin.springStudy.bean.Message;
 import com.gavin.springStudy.bean.MessageChild;
 import com.gavin.springStudy.bean.MessageParent;
@@ -31,8 +32,14 @@ public class SpringStudyApplication {
 //		mpt.getMessage1();
 //		mpt.getMessage2();
 		
-		TextEditor te = (TextEditor) context.getBean("textEditor");
-		te.checkSpell();
+//		TextEditor te = (TextEditor) context.getBean("textEditor");
+//		te.checkSpell();
+		
+		JavaCollection jc=(JavaCollection)context.getBean("javaCollection");
+		jc.getAddressList();
+		jc.getAddressSet();
+		jc.getAddressMap();
+		jc.getAddressProp();
 		
 	}
 }
