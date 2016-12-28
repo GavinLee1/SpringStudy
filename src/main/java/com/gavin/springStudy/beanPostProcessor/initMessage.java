@@ -17,7 +17,4 @@ public class initMessage implements BeanPostProcessor{
 		return bean;
 	}
 
-	
-	
-
 }
