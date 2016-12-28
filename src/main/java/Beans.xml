@@ -12,4 +12,16 @@
 	
 	<bean class="com.gavin.springStudy.beanPostProcessor.initMessage" />
 	
+	<bean id="messageParent" class="com.gavin.springStudy.bean.MessageParent">
+		<property name="message1" value="Hello Parent!"/>
+		<property name="message2" value="Namaste India!"/>
+	</bean>
+	
+	<bean id="messageChild" class="com.gavin.springStudy.bean.MessageChild" parent="messageParent">
+		<property name="message1" value="Hello Chile!"/>
+		<property name="message3" value="Hello Second World!"/>
+	</bean>
+	
+	
+	
 </beans>
