@@ -10,6 +10,7 @@ import com.gavin.springStudy.bean.JavaCollection;
 import com.gavin.springStudy.bean.Message;
 import com.gavin.springStudy.bean.MessageChild;
 import com.gavin.springStudy.bean.MessageParent;
+import com.gavin.springStudy.bean.PostConstructExample;
 import com.gavin.springStudy.bean.TextEditor;
 
 @SpringBootApplication
@@ -42,8 +43,12 @@ public class SpringStudyApplication {
 //		jc.getAddressMap();
 //		jc.getAddressProp();
 		
-		AutowireExample autowire = (AutowireExample)context.getBean("autowireExample");
-		autowire.getAuto();
+//		AutowireExample autowire = (AutowireExample)context.getBean("autowireExample");
+//		autowire.getAuto();
+		
+		PostConstructExample postc = (PostConstructExample)context.getBean("postConstructExample");
+		postc.say();
+		context.registerShutdownHook();
 		
 	}
 }

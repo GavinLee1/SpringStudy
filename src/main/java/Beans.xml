@@ -80,4 +80,8 @@
 	<bean id="autoExample" class="com.gavin.springStudy.bean.AutoExample">
 	</bean>
 	
+	<bean id="postConstructExample" class="com.gavin.springStudy.bean.PostConstructExample" init-method="init" destroy-method="destroy">
+		<property name="message" value="Hello world!"/>
+	</bean>
+	
 </beans>
