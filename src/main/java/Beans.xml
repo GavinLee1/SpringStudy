@@ -87,8 +87,8 @@
 		<property name="message" value="Hello world!"/>
 	</bean>
 	
-	
-		<aop:config>
+	<!-- 
+	<aop:config>
 		<aop:aspect id="log" ref="logging">
 			<aop:pointcut id="selectAll"
 				expression="execution(* com.gavin.springStudy.aop.Student.getName(..))" />
@@ -99,13 +99,17 @@
 			<aop:after-throwing pointcut-ref="selectAll"
 				throwing="ex" method="AfterThrowingAdvice" />
 		</aop:aspect>
-	</aop:config>
+	</aop:config> -->
+	<aop:aspectj-autoproxy/>
 	
 	<bean id="student" class="com.gavin.springStudy.aop.Student">
 		<property name="age" value="21"/>
 		<property name="name" value="steven"/>
 	</bean>
 	<bean id="logging" class="com.gavin.springStudy.aop.Logging">
+	</bean>
+	
+	<bean id="loggingAspect" class="com.gavin.springStudy.aopAspect.LoggingAspect">
 	</bean>
 	
 
