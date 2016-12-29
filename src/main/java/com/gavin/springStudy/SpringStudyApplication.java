@@ -2,10 +2,14 @@ package com.gavin.springStudy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.gavin.springStudy.bean.AutowireExample;
+import com.gavin.springStudy.bean.Hello;
+import com.gavin.springStudy.bean.HelloConfig;
 import com.gavin.springStudy.bean.JavaCollection;
 import com.gavin.springStudy.bean.Message;
 import com.gavin.springStudy.bean.MessageChild;
@@ -19,7 +23,7 @@ public class SpringStudyApplication {
 	public static void main(String[] args) {
 //		SpringApplication.run(SpringStudyApplication.class, args);
 		
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+//		AbstractApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
 		
 //		Message msg = (Message) context.getBean("message");
 //		msg.getMessage();
@@ -46,9 +50,14 @@ public class SpringStudyApplication {
 //		AutowireExample autowire = (AutowireExample)context.getBean("autowireExample");
 //		autowire.getAuto();
 		
-		PostConstructExample postc = (PostConstructExample)context.getBean("postConstructExample");
-		postc.say();
-		context.registerShutdownHook();
+//		PostConstructExample postc = (PostConstructExample)context.getBean("postConstructExample");
+//		postc.say();
+//		context.registerShutdownHook();
+		
+		ApplicationContext ctx = new AnnotationConfigApplicationContext(HelloConfig.class);
+		
+		Hello helloWorld = ctx.getBean(Hello.class);
+		helloWorld.getMessage();
 		
 	}
 }
