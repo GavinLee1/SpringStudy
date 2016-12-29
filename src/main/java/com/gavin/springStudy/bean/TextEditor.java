@@ -1,6 +1,7 @@
 package com.gavin.springStudy.bean;
 
 public class TextEditor {
+	
 	private SpellChecker spellChecker;
 	
 	public TextEditor(SpellChecker spellChecker)

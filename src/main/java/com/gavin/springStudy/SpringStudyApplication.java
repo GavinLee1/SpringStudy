@@ -15,7 +15,9 @@ import com.gavin.springStudy.bean.Message;
 import com.gavin.springStudy.bean.MessageChild;
 import com.gavin.springStudy.bean.MessageParent;
 import com.gavin.springStudy.bean.PostConstructExample;
+import com.gavin.springStudy.bean.SpellChecker;
 import com.gavin.springStudy.bean.TextEditor;
+import com.gavin.springStudy.bean.TextEditorConfig;
 
 @SpringBootApplication
 public class SpringStudyApplication {
@@ -54,10 +56,13 @@ public class SpringStudyApplication {
 //		postc.say();
 //		context.registerShutdownHook();
 		
-		ApplicationContext ctx = new AnnotationConfigApplicationContext(HelloConfig.class);
+//		ApplicationContext ctx = new AnnotationConfigApplicationContext(HelloConfig.class);
+//		Hello helloWorld = ctx.getBean(Hello.class);
+//		helloWorld.getMessage();
 		
-		Hello helloWorld = ctx.getBean(Hello.class);
-		helloWorld.getMessage();
+		ApplicationContext ctx = new AnnotationConfigApplicationContext(TextEditorConfig.class);
+		SpellChecker spellChecker = ctx.getBean(SpellChecker.class);
+		spellChecker.checkSpelling();
 		
 	}
 }
