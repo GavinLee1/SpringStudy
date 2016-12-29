@@ -2,6 +2,9 @@ package com.gavin.springStudy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -10,6 +13,7 @@ import com.gavin.springStudy.bean.Message;
 import com.gavin.springStudy.bean.MessageChild;
 import com.gavin.springStudy.bean.MessageParent;
 import com.gavin.springStudy.bean.TextEditor;
+import com.gavin.springStudy.listener.MessageConfig;
 
 @SpringBootApplication
 public class SpringStudyApplication {
@@ -41,5 +45,13 @@ public class SpringStudyApplication {
 		jc.getAddressMap();
 		jc.getAddressProp();
 		
+		
+		
+		ConfigurableApplicationContext ctx = new AnnotationConfigApplicationContext(MessageConfig.class);
+		Message msg = ctx.getBean(Message.class);
+		ctx.start();
+		msg.setMessage("Hello Again");
+		msg.getMessage();
+		ctx.stop();
 	}
 }
