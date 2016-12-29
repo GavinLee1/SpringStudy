@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.gavin.springStudy.bean.AutowireExample;
 import com.gavin.springStudy.bean.JavaCollection;
 import com.gavin.springStudy.bean.Message;
 import com.gavin.springStudy.bean.MessageChild;
@@ -35,11 +36,14 @@ public class SpringStudyApplication {
 //		TextEditor te = (TextEditor) context.getBean("textEditor");
 //		te.checkSpell();
 		
-		JavaCollection jc=(JavaCollection)context.getBean("javaCollection");
-		jc.getAddressList();
-		jc.getAddressSet();
-		jc.getAddressMap();
-		jc.getAddressProp();
+//		JavaCollection jc=(JavaCollection)context.getBean("javaCollection");
+//		jc.getAddressList();
+//		jc.getAddressSet();
+//		jc.getAddressMap();
+//		jc.getAddressProp();
+		
+		AutowireExample autowire = (AutowireExample)context.getBean("autowireExample");
+		autowire.getAuto();
 		
 	}
 }
