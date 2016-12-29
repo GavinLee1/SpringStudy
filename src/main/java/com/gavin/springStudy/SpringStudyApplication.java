@@ -8,6 +8,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.gavin.springStudy.aop.Student;
 import com.gavin.springStudy.bean.AutowireExample;
 import com.gavin.springStudy.bean.Hello;
 import com.gavin.springStudy.bean.HelloConfig;
@@ -66,11 +67,18 @@ public class SpringStudyApplication {
 //		SpellChecker spellChecker = ctx.getBean(SpellChecker.class);
 //		spellChecker.checkSpelling();
 		
-		ConfigurableApplicationContext ctx = new AnnotationConfigApplicationContext(MessageConfig.class);
-		Message msg = ctx.getBean(Message.class);
-		ctx.start();
-		msg.setMessage("Hello Again");
-		msg.getMessage();
-		ctx.stop();
+//		ConfigurableApplicationContext ctx = new AnnotationConfigApplicationContext(MessageConfig.class);
+//		Message msg = ctx.getBean(Message.class);
+//		ctx.start();
+//		msg.setMessage("Hello Again");
+//		msg.getMessage();
+//		ctx.stop();
+		
+		ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+		Student stu = (Student)context.getBean("student");
+		stu.getName();
+		stu.getAge();
+		stu.printThrowException();
+		
 	}
 }
